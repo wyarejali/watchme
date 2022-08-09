@@ -1,0 +1,202 @@
+.btn {
+  background: var(--primary-color);
+  padding: 10px 25px !important;
+  color: var(--light-color);
+  border-radius: 30px;
+  display: inline-block;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--secondary-color);
+}
+
+/* App CSS
+-------------------*/
+.slider-container {
+  padding: 0;
+}
+
+.slider-item {
+  display: block !important;
+  position: relative;
+  height: 100vh;
+}
+
+.slider-item img {
+  height: 100vh;
+  object-fit: cover;
+}
+
+.movie-content {
+  background: #00000094;
+  color: #fff;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 150px;
+}
+
+.movie-content h2 {
+  font-size: 45px;
+  font-weight: 700;
+  text-transform: capitalize;
+  margin-bottom: 10px;
+}
+
+h4.category {
+  color: var(--secondary-color);
+  margin: 10px 0;
+}
+
+.play {
+  padding: 15px 30px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+.section-title {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.section-title h3 {
+  font-size: 30px;
+}
+
+/* Movies CSS
+---------------- */
+
+.playing {
+  background: var(--light-color);
+}
+
+.trending {
+  background: var(--light-gray-color);
+}
+
+.tv-shows {
+  background: var(--light-color);
+}
+
+.movies-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 26px;
+}
+
+.card {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.card h5.category {
+  color: var(--gray-color);
+}
+
+.card img {
+  width: 100%;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+
+/* Movie page css 
+----------------------------- */
+.browse-movie-by-filter {
+  padding: 50px 0 !important;
+}
+
+.movie-filter {
+  display: flex;
+  justify-content: space-between;
+  gap: 26px;
+}
+
+.filter {
+  flex: 1;
+}
+
+h5.title {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.type {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--gray-color);
+}
+
+.type {
+  padding: 0 5px 10px 5px;
+}
+
+.form-control {
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.form-control label {
+  position: relative;
+  display: block;
+  width: 100%;
+  cursor: pointer;
+  padding: 5px;
+  padding-left: 30px;
+}
+
+.form-control label::after {
+  content: '';
+  position: absolute;
+  width: calc(100% + 15px);
+  height: 100%;
+  top: 0;
+  left: -15px;
+  z-index: -1;
+}
+
+.form-control label:hover::after {
+  background: rgb(235, 235, 235);
+}
+
+select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+input[type='checkbox'] {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Filltered movie list 
+--------------------------------- */
+h2.heading {
+  margin-bottom: 30px;
+}
+
+.filtered-movie {
+  flex: 4;
+}
+
+.grid {
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}

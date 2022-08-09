@@ -1,0 +1,257 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
+:root {
+  --primary-color: #635ae2;
+  --secondary-color: #fe5151;
+  --light-gray-color: #f4f4f4;
+  --gray-color: #cacaca;
+  --light-color: #f7f7f7;
+  --dark: #263238;
+}
+*,
+::after,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', Oxygen, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, Cantarell, sans-serif;
+  background: var(--light-color);
+  color: #222;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  max-width: 1140px;
+  margin: auto;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    padding: 0 35px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .container {
+    padding: 0 25px;
+  }
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.secondary-color {
+  color: var(--secondary-color);
+}
+
+/* Header CSS
+-----------------*/
+header {
+  background: transparent;
+  color: var(--light-color);
+  width: 100%;
+  z-index: 999;
+}
+
+header.absolute {
+  position: absolute;
+}
+
+header.relative {
+  background: var(--dark);
+  position: relative;
+}
+
+.logo-area h2 {
+  font-size: 33px;
+  letter-spacing: 1.3px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav > .nav-header {
+  display: inline;
+}
+
+.nav > .nav-header > .nav-title {
+  display: inline-block;
+  font-size: 22px;
+  color: #fff;
+  padding: 10px 10px 10px 10px;
+}
+
+.nav > .nav-btn {
+  display: none;
+}
+
+.nav-links {
+  display: inline;
+  float: right;
+}
+
+.nav-links ul {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links ul li {
+  margin: 0 8px;
+}
+
+.nav-links ul li a.nav-link {
+  color: var(--gray-color);
+  padding: 32px 0;
+}
+
+.nav-links ul li a.nav-link:hover,
+.nav-links ul li a.nav-link.active {
+  color: var(--light-color);
+  padding: 32px 0;
+}
+
+.nav > #nav-check {
+  display: none;
+}
+
+/* Header search box 
+------------------------------- */
+.nav-search-box input {
+  background: rgba(21, 21, 25, 0.52);
+  border: none;
+  outline: none;
+  padding: 10px 10px 10px 30px;
+  height: 44px;
+  border-radius: 30px 0 0 30px;
+  color: var(--light-color);
+}
+
+.nav-search-box input::placeholder {
+  color: var(--gray-color);
+}
+
+.nav-search-box input:focus {
+  color: var(--light-color);
+}
+
+.search-btn {
+  height: 44px;
+  background: rgb(21, 21, 25, 0.52);
+  border-radius: 0 30px 30px 0;
+  padding: 14px 30px 14px 10px !important;
+}
+
+@media (max-width: 945px) {
+  .nav-links ul {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links ul li {
+    padding: 10px;
+  }
+
+  .nav > .nav-btn {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav > .nav-links {
+    position: absolute;
+    display: block;
+    width: 300px;
+    background-color: var(--dark);
+    height: 100vh;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 0;
+    left: -300px;
+  }
+  .nav > .nav-links > a {
+    display: block;
+    width: 100%;
+  }
+  .nav .nav-links.open {
+    left: 0;
+  }
+
+  .form-group {
+    text-align: center;
+  }
+  .nav-search-box {
+    width: 100%;
+  }
+  .nav-search-box input {
+    width: 70%;
+  }
+}
+
+.close-btn,
+.menu-btn {
+  display: inline;
+  border: none;
+  outline: none;
+  background: rgba(21, 21, 25, 0.52);
+  margin-left: 5px;
+  color: var(--light-color);
+  font-size: 18px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.close-btn {
+  display: none;
+}
+@media (max-width: 590px) {
+  .close-btn {
+    display: inline;
+  }
+  .nav-search-box {
+    position: absolute;
+    background: var(--dark);
+    padding: 10px 0;
+    top: -100px;
+    left: 0;
+    transition: all 0.4s ease;
+  }
+
+  .nav-search-box.open {
+    top: 0;
+  }
+}
+
+/* Footer CSS
+----------------*/
+footer {
+  background: var(--light-gray-color);
+  padding: 10px 0;
+}
+
+.copyright-text {
+  text-align: center;
+}
+.copyright-text a {
+  color: var(--primary-color);
+  font-weight: 600;
+}
