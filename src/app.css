@@ -1,8 +1,8 @@
 .btn {
   background: var(--primary-color);
-  padding: 10px 25px !important;
+  padding: 10px 25px;
   color: var(--light-color);
-  border-radius: 30px;
+  border-radius: 5px;
   display: inline-block;
   border: none;
   outline: none;
@@ -21,6 +21,9 @@
 
 .slider-item {
   display: block !important;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   position: relative;
   height: 100vh;
 }
@@ -44,7 +47,6 @@
   align-items: center;
   flex-direction: column;
   width: 100%;
-  padding: 0 150px;
 }
 
 .movie-content h2 {
@@ -54,7 +56,14 @@
   margin-bottom: 10px;
 }
 
-h4.category {
+@media (max-width: 768px) {
+  .movie-content h2 {
+    font-size: 30px;
+  }
+}
+
+span.date {
+  display: inline-block;
   color: var(--secondary-color);
   margin: 10px 0;
 }
@@ -85,7 +94,7 @@ section {
 }
 
 .trending {
-  background: var(--light-gray-color);
+  background: var(--clr-light-gray);
 }
 
 .tv-shows {
@@ -98,13 +107,50 @@ section {
   gap: 26px;
 }
 
+.movies-card.page-movies {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 26px;
+}
+
+@media (max-width: 1024px) {
+  .movies-card {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .movies-card.page-movies {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .movies-card {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .movies-card.page-movies {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 425px) {
+  .movies-card {
+    grid-template-columns: 1fr 1fr;
+  }
+  .movies-card.page-movies {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card {
   margin-bottom: 15px;
   text-align: center;
 }
 
-.card h5.category {
-  color: var(--gray-color);
+.card a h4.name {
+  color: var(--dark);
+}
+
+.card a:hover h4.name {
+  color: var(--primary-color);
 }
 
 .card img {
@@ -123,6 +169,12 @@ section {
   display: flex;
   justify-content: space-between;
   gap: 26px;
+}
+
+@media (max-width: 768px) {
+  .movie-filter {
+    display: block;
+  }
 }
 
 .filter {
@@ -147,7 +199,7 @@ h5.title {
 }
 
 .form-control {
-  margin-bottom: 12px;
+  margin-bottom: 4px;
   position: relative;
 }
 
@@ -187,6 +239,107 @@ input[type='checkbox'] {
   transform: translateY(-50%);
 }
 
+@media (max-width: 768px) {
+  .filter {
+    margin-bottom: 30px;
+  }
+  .filter-options {
+    display: flex;
+    gap: 32px;
+  }
+
+  .genres-filter-group {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .form-control label {
+    padding-left: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-options {
+    display: block;
+  }
+  .form-control label::after {
+    left: -10px;
+  }
+}
+
+@media (max-width: 476px) {
+  .genres-filter-group {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+/* About Page CSS 
+-------------------------------- */
+.about {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 26px;
+}
+
+.about * {
+  flex: 1;
+}
+
+.about img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.about-content h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.about-content h4 {
+  margin-bottom: 20px;
+}
+
+.about-content p {
+  margin-bottom: 10px;
+}
+
+/* Privacy, Terms and Conditions CSS
+-------------------------------------- */
+.privacy h2,
+.terms-conditions h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.privacy h3,
+.terms-conditions h3 {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #dbdbdb;
+  padding-bottom: 10px;
+}
+
+.privacy h4,
+.terms-conditions h4 {
+  margin-bottom: 12px;
+}
+
+.content p {
+  margin-bottom: 10px;
+}
+
+.content a {
+  color: var(--primary-color);
+}
+
 /* Filltered movie list 
 --------------------------------- */
 h2.heading {
@@ -199,4 +352,192 @@ h2.heading {
 
 .grid {
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+/* Pagination CSS 
+-------------------------------- */
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.pagination .page {
+  border: none;
+  outline: none;
+}
+
+/* Movie Details page CSS
+------------------------------------ */
+.backdrop_poster {
+  position: relative;
+  height: 450px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.backdrop_poster::after {
+  position: absolute;
+  content: '';
+  background: linear-gradient(180deg, var(--dark), transparent);
+  width: 100%;
+  height: 100%;
+}
+
+.detail-header {
+  padding: 30px 0;
+  border-bottom: 1px solid #e2e2e2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.categories {
+  display: flex;
+  gap: 10px;
+}
+
+p.genre {
+  margin: 10px 0;
+}
+
+.rating {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.icon-box-area {
+  display: flex;
+  gap: 15px;
+}
+
+.icon-box {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.icon-box .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  background-color: var(--dark);
+  color: var(--light-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 532px) {
+  .icon-box-area {
+    display: block;
+  }
+
+  .icon-box {
+    justify-content: start;
+  }
+}
+
+.more-details {
+  padding: 40px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.more-details h2 {
+  margin-bottom: 15px;
+}
+
+.created-by {
+  display: flex;
+  gap: 30px;
+}
+
+.creator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.creator img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+@media (max-width: 1024px) {
+  .created-by {
+    display: block;
+  }
+  .creator {
+    margin-bottom: 10px;
+  }
+}
+
+.poster {
+  max-width: 400px;
+  min-width: 300px;
+}
+
+.poster img {
+  width: 100%;
+}
+
+.details {
+  flex: 1.5;
+}
+
+.details > * {
+  margin-bottom: 20px;
+}
+
+.production {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.company {
+  width: 80px;
+  height: 80px;
+  background: #dbdbdb;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  overflow: hidden;
+}
+
+.company img {
+  width: 100%;
+  object-fit: contain;
+}
+
+@media (max-width: 768px) {
+  .detail-header {
+    display: block;
+  }
+  .detail-header > * {
+    margin-bottom: 30px;
+  }
+}
+
+@media (max-width: 700px) {
+  .more-details {
+    display: block;
+  }
+
+  .more-details > * {
+    margin-bottom: 30px;
+  }
 }

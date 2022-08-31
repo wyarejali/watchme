@@ -1,7 +1,7 @@
 import React from 'react'
-
 import { Carousel } from 'react-responsive-carousel'
-import 'react-responsive-carousel/lib/styles/carousel.min.css' // requires a loader
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { Link } from 'react-router-dom'
 
 import { useGlobalState } from '../context/movieContext'
 const Banner = () => {
@@ -18,16 +18,25 @@ const Banner = () => {
           showArrows={false}
         >
           {topRatedMovie.map((movie) => {
-            const { backdrop_path, title, overview } = movie
+            const { backdrop_path, title, overview, release_date } = movie
             return (
-              <div key={movie.id} className='slider-item'>
-                <img src={getImage(backdrop_path, 1280)} alt={title} />
+              <div
+                key={movie.id}
+                className='slider-item'
+                style={{
+                  backgroundImage: `url(${getImage(backdrop_path, 1280)})`,
+                }}
+              >
                 <div className='movie-content'>
-                  <div className='context-wrapper'>
+                  <div className='container'>
                     <h2>{title}</h2>
                     <p>{overview}</p>
-                    <h4 className='category'>Comidy / Horror / Thriller</h4>
-                    <button className='btn play'>Play Trailer</button>
+                    <h4>
+                      Release Date: <span className='date'>{release_date}</span>
+                    </h4>
+                    <Link to={`/movie/${movie.id}`} className='btn'>
+                      View Details
+                    </Link>
                   </div>
                 </div>
               </div>

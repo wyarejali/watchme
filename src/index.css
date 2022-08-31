@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 :root {
-  --primary-color: #635ae2;
-  --secondary-color: #fe5151;
-  --light-gray-color: #f4f4f4;
-  --gray-color: #cacaca;
-  --light-color: #f7f7f7;
-  --dark: #263238;
+  --primary-color: #27aae2;
+  --secondary-color: #f15b26;
+  --clr-one: #14b8a6;
+  --clr-light-gray: #f4f4f4;
+  --clr-gray: #cacaca;
+  --light-color: #fafafa;
+  --dark: #02010d;
+  --clr-dark-one: #02020f;
 }
 *,
 ::after,
@@ -33,6 +35,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: var(--secondary-color);
+}
+
 .container {
   max-width: 1140px;
   margin: auto;
@@ -40,7 +46,7 @@ a {
 
 @media only screen and (max-width: 1024px) {
   .container {
-    padding: 0 35px;
+    max-width: 900px;
   }
 }
 
@@ -78,26 +84,21 @@ header.relative {
   position: relative;
 }
 
-.logo-area h2 {
-  font-size: 33px;
-  letter-spacing: 1.3px;
+.logo {
+  width: 200px;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.nav > .nav-header {
-  display: inline;
+  padding: 10px 0;
 }
 
 .nav > .nav-header > .nav-title {
   display: inline-block;
   font-size: 22px;
   color: #fff;
-  padding: 10px 10px 10px 10px;
 }
 
 .nav > .nav-btn {
@@ -119,14 +120,15 @@ header.relative {
 }
 
 .nav-links ul li a.nav-link {
-  color: var(--gray-color);
-  padding: 32px 0;
+  color: var(--clr-gray);
+  padding: 10px 0;
 }
 
-.nav-links ul li a.nav-link:hover,
-.nav-links ul li a.nav-link.active {
+.nav-links ul li a.nav-link:hover {
   color: var(--light-color);
-  padding: 32px 0;
+}
+.nav-links ul li a.nav-link.active {
+  color: var(--secondary-color);
 }
 
 .nav > #nav-check {
@@ -135,12 +137,18 @@ header.relative {
 
 /* Header search box 
 ------------------------------- */
+.nav-search-box {
+  display: flex;
+  justify-content: center;
+}
 .nav-search-box input {
-  background: rgba(21, 21, 25, 0.52);
+  background: #2d2d2d;
   border: none;
   outline: none;
   padding: 10px 10px 10px 30px;
   height: 44px;
+  border: 1px solid transparent;
+  border-right: none;
   border-radius: 30px 0 0 30px;
   color: var(--light-color);
 }
@@ -151,11 +159,12 @@ header.relative {
 
 .nav-search-box input:focus {
   color: var(--light-color);
+  border-color: var(--primary-color);
 }
 
 .search-btn {
   height: 44px;
-  background: rgb(21, 21, 25, 0.52);
+  background: var(--primary-color);
   border-radius: 0 30px 30px 0;
   padding: 14px 30px 14px 10px !important;
 }
@@ -192,16 +201,30 @@ header.relative {
   }
   .nav .nav-links.open {
     left: 0;
+    box-shadow: 0px 0 25px 0 rgb(0 0 0 / 50%);
   }
 
   .form-group {
-    text-align: center;
+    display: flex;
+    justify-content: center;
   }
   .nav-search-box {
     width: 100%;
   }
   .nav-search-box input {
     width: 70%;
+  }
+}
+
+@media (max-width: 945px) {
+  .nav-search-box input {
+    width: 70%;
+  }
+}
+
+@media (max-width: 500px) {
+  .nav-search-box input {
+    width: 50%;
   }
 }
 
@@ -214,16 +237,16 @@ header.relative {
   margin-left: 5px;
   color: var(--light-color);
   font-size: 18px;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
-  padding: 5px;
+  padding: 10px;
 }
 
 .close-btn {
   display: none;
 }
-@media (max-width: 590px) {
+@media (max-width: 945px) {
   .close-btn {
     display: inline;
   }
@@ -243,15 +266,71 @@ header.relative {
 
 /* Footer CSS
 ----------------*/
-footer {
-  background: var(--light-gray-color);
-  padding: 10px 0;
+
+.widgets-area {
+  background: var(--clr-dark-one);
+  padding: 60px 0;
+  border-bottom: 1px solid #1f1f1f;
+}
+
+.ft-wrapper {
+  display: flex;
+  gap: 26px;
+  color: var(--clr-light-gray);
+}
+
+.ft-widget {
+  flex: 1;
+}
+
+.ft-widget-title {
+  margin-bottom: 30px;
+}
+
+.ft-widget-content.about {
+  margin-top: 20px;
+}
+
+.ft-menu li a {
+  color: var(--clr-light-gray);
+  margin: 5px 0;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.ft-menu li a:hover {
+  color: var(--secondary-color);
+}
+
+.copyright-text-area {
+  background: var(--clr-dark-one);
+  padding: 20px 0;
 }
 
 .copyright-text {
   text-align: center;
+  font-size: 14px;
+  color: var(--clr-gray);
 }
 .copyright-text a {
   color: var(--primary-color);
   font-weight: 600;
+}
+
+.copyright-text a:hover {
+  color: var(--secondary-color);
+}
+
+@media (max-width: 768px) {
+  .ft-wrapper {
+    display: block;
+  }
+
+  .ft-widget {
+    margin-bottom: 30px;
+  }
+
+  .ft-widget-title {
+    margin-bottom: 20px;
+  }
 }

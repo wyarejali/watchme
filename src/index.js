@@ -6,7 +6,7 @@ import './index.css'
 import Container from './layouts/Container'
 import { AppProvider } from './context/movieContext'
 
-const root = createRoot(document.getElementById('root'))
+const root = createRoot(document.getElementById('movie_root'))
 
 root.render(
   <AppProvider>

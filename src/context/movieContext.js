@@ -44,7 +44,7 @@ const AppProvider = ({ children }) => {
   }
 
   const getImage = (path, size) => {
-    return `${image_url}w${size}/${path}`
+    return `${image_url}w${size}${path}`
   }
 
   useEffect(() => {
