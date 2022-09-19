@@ -451,6 +451,10 @@ p.genre {
   gap: 30px;
 }
 
+.more-details > * {
+  flex: 1;
+}
+
 .more-details h2 {
   margin-bottom: 15px;
 }
@@ -489,10 +493,6 @@ p.genre {
 
 .poster img {
   width: 100%;
-}
-
-.details {
-  flex: 1.5;
 }
 
 .details > * {
@@ -540,4 +540,27 @@ p.genre {
   .more-details > * {
     margin-bottom: 30px;
   }
+}
+
+.trailer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.trailer::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, var(--dark), transparent);
+}
+
+.trailer button {
+  z-index: 1;
 }
