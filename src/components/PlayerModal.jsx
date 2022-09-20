@@ -12,17 +12,13 @@ const PlayerModal = ({ id }) => {
     },
   }
 
-  const _onReady = (e) => {
-    console.log('ready')
-  }
-
   return (
     <div className='player-modal'>
       <span
         className='close-player'
         onClick={() => setIsPlayerModalOpen(false)}
       ></span>
-      <YouTube className='player' opts={opts} videoId={id} onReady={_onReady} />
+      <YouTube className='player' opts={opts} videoId={id} />
     </div>
   )
 }

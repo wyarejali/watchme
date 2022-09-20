@@ -11,6 +11,7 @@
 
 .btn:hover {
   background: var(--secondary-color);
+  color: var(--light-color) !important;
 }
 
 /* App CSS
@@ -396,11 +397,15 @@ h2.heading {
 
 .categories {
   display: flex;
-  gap: 10px;
+  gap: 5px;
 }
 
 p.genre {
   margin: 10px 0;
+}
+
+.categories p:last-child span {
+  display: none;
 }
 
 .rating {
@@ -563,4 +568,18 @@ p.genre {
 
 .trailer button {
   z-index: 1;
+}
+button.play-btn {
+  background: var(--light-color);
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--primary-color);
+  width: 50px;
+  height: 50px;
+}
+
+button.play-btn:hover {
+  color: var(--secondary-color);
 }

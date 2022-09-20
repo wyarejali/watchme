@@ -1,9 +1,13 @@
 import axios from 'axios'
 import React, { useEffect, useRef, useState } from 'react'
-import { AiFillStar, AiOutlineDollar, AiOutlineFieldTime } from 'react-icons/ai'
+import {
+  AiFillPlayCircle,
+  AiFillStar,
+  AiOutlineDollar,
+  AiOutlineFieldTime,
+} from 'react-icons/ai'
 import { BsCalendar2Date } from 'react-icons/bs'
 import { useParams } from 'react-router-dom'
-import no_image from '../assets/no_image.jpg'
 import { PlayerModal } from '../components'
 import { useGlobalState } from '../context/movieContext'
 import { formate } from '../features/formateNumber'
@@ -17,7 +21,7 @@ const MovieDetails = () => {
   const { getImage, isPlayerModalOpen, setIsPlayerModalOpen } = useGlobalState()
   const { id } = useParams()
   const [isLoading, setIsLoading] = useState(false)
-  const [movie, setMovie] = useState({})
+  const [movie, setMovie] = useState([])
   const [videoId, setVideoId] = useState('')
 
   useEffect(() => {
@@ -31,18 +35,15 @@ const MovieDetails = () => {
             const [movie, trailer] = results
             setMovie(movie.data)
 
+            // Get the trailer id
             let videoData
             trailer.data.results.filter((video) => {
-              if (
-                video.name === 'Official Trailer' &&
-                video.type === 'Trailer'
-              ) {
+              if (video.official && video.type === 'Trailer') {
                 videoData = video
               }
               return videoData
             })
-            setVideoId(videoData.key)
-
+            setVideoId(videoData?.key ? videoData.key : '')
             setIsLoading(false)
           }
         })
@@ -55,7 +56,7 @@ const MovieDetails = () => {
 
     page.current.scrollIntoView({ behavior: 'smooth' })
   }, [id])
-  // console.log(videoId)
+
   const handlePlayer = () => {
     setIsPlayerModalOpen((oldSate) => {
       return !oldSate
@@ -99,8 +100,8 @@ const MovieDetails = () => {
               <div className='categories'>
                 {movie.genres?.map((genre, index) => (
                   <p key={index} className='genre'>
-                    {' '}
                     {genre.name}
+                    <span> / </span>
                   </p>
                 ))}
               </div>
@@ -176,36 +177,27 @@ const MovieDetails = () => {
                 <h4>Adult</h4>
                 <p>{movie.adult ? 'Yes' : 'No'}</p>
               </div>
-              <div>
-                <h4>Production Companies</h4>
-                <div className='production'>
-                  {movie.production_companies?.map((company, index) => (
-                    <div key={index} className='company' title={company.name}>
-                      <img
-                        src={
-                          company?.logo_path
-                            ? getImage(company.logo_path, 200)
-                            : no_image
-                        }
-                        alt={company.name}
-                      />
-                    </div>
-                  ))}
-                </div>
+            </div>
+            {videoId && (
+              <div
+                className='trailer'
+                style={{
+                  backgroundImage: `url(${
+                    movie.backdrop_path
+                      ? getImage(movie?.backdrop_path, 500)
+                      : ''
+                  })`,
+                }}
+              >
+                <button
+                  type='button'
+                  className='play-btn'
+                  onClick={handlePlayer}
+                >
+                  <AiFillPlayCircle size={50} />
+                </button>
               </div>
-            </div>
-            <div
-              className='trailer'
-              style={{
-                backgroundImage: `url(${
-                  movie.backdrop_path ? getImage(movie?.backdrop_path, 500) : ''
-                })`,
-              }}
-            >
-              <button type='button' className='btn' onClick={handlePlayer}>
-                Play Trailer
-              </button>
-            </div>
+            )}
           </div>
         </div>
       </div>
