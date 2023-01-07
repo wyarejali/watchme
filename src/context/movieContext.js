@@ -3,13 +3,13 @@ import { createContext, useContext, useEffect, useState } from 'react'
 // api urls for getting the movie
 const api_key = `?api_key=${process.env.REACT_APP_API_KEY}`
 const baseUrl = 'https://api.themoviedb.org/3/'
-//   const searchUrl = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=`
 const image_url = 'https://image.tmdb.org/t/p/'
 
 // Create movie context
 const movieContext = createContext()
 // App Provider
 const AppProvider = ({ children }) => {
+  const [isPlayerModalOpen, setIsPlayerModalOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
   const [topRatedMovie, setTopRatedMovie] = useState([])
   const [nowPlayingMovie, setNowPlayingMovie] = useState([])
@@ -60,6 +60,8 @@ const AppProvider = ({ children }) => {
         trendingMovie,
         tvShows,
         getImage,
+        isPlayerModalOpen,
+        setIsPlayerModalOpen,
       }}
     >
       {children}

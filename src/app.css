@@ -11,6 +11,7 @@
 
 .btn:hover {
   background: var(--secondary-color);
+  color: var(--light-color) !important;
 }
 
 /* App CSS
@@ -396,11 +397,15 @@ h2.heading {
 
 .categories {
   display: flex;
-  gap: 10px;
+  gap: 5px;
 }
 
 p.genre {
   margin: 10px 0;
+}
+
+.categories p:last-child span {
+  display: none;
 }
 
 .rating {
@@ -451,6 +456,10 @@ p.genre {
   gap: 30px;
 }
 
+.more-details > * {
+  flex: 1;
+}
+
 .more-details h2 {
   margin-bottom: 15px;
 }
@@ -489,10 +498,6 @@ p.genre {
 
 .poster img {
   width: 100%;
-}
-
-.details {
-  flex: 1.5;
 }
 
 .details > * {
@@ -540,4 +545,41 @@ p.genre {
   .more-details > * {
     margin-bottom: 30px;
   }
+}
+
+.trailer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 220px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.trailer::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(145deg, var(--dark), transparent);
+}
+
+.trailer button {
+  z-index: 1;
+}
+button.play-btn {
+  background: var(--light-color);
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  cursor: pointer;
+  color: var(--primary-color);
+  width: 50px;
+  height: 50px;
+}
+
+button.play-btn:hover {
+  color: var(--secondary-color);
 }

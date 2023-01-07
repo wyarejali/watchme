@@ -334,3 +334,33 @@ header.relative {
     margin-bottom: 20px;
   }
 }
+
+/* Player
+------------------------ */
+.player-modal {
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+span.close-player {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000b0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.player {
+  z-index: 2;
+}
